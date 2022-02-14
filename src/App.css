@@ -1,38 +1,286 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  @apply flex flex-col;
+  height: 100vh;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  @apply h-16 bg-white shadow;
+  @apply flex justify-between px-8 py-4;
 }
 
-.App-link {
-  color: #61dafb;
+h2 {
+  @apply text-lg;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app-title {
+  @apply inline-flex items-center grow;
+  @apply text-xl font-bold;
+}
+
+.header-button {
+  @apply px-6 py-2 inline-flex items-center justify-center rounded-lg text-base font-medium ml-2;
+}
+
+.accent {
+  @apply bg-indigo-600 hover:bg-indigo-700 shadow-sm text-white;
+}
+
+.non-accent {
+  @apply text-slate-500;
+}
+
+.non-accent:hover {
+  @apply text-slate-600;
+}
+
+.content-area {
+  @apply p-8 bg-slate-50 grow overflow-y-scroll;
+}
+
+.content-wrapper {
+  @apply relative h-full;
+}
+
+.page-container {
+  @apply absolute ;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  @apply bg-slate-50;
+}
+
+
+
+.metadata-title {
+  @apply text-white text-xs;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.metadata-item {
+  @apply text-stone-300 text-xs mt-1;
+}
+
+.metadata {
+  @apply mb-3;
+}
+
+.tag-list {
+  @apply mt-1;
+}
+
+.tag-list-item {
+  @apply inline-block mr-1 mb-1;
+}
+
+.tag-list-badge {
+  @apply items-center px-3 py-0.5;
+  @apply rounded-full text-xs;
+  @apply bg-slate-100 text-slate-600 border-slate-700;
+}
+
+.column-button {
+  @apply w-full bg-blue-400 rounded-md py-2 text-white text-sm;
+  font-weight: 600;
+}
+
+/* Header */
+
+header {
+  @apply bg-neutral-800;
+}
+
+header nav {
+  @apply mx-auto px-8;
+  @apply relative flex items-center justify-between h-16;
+}
+
+.accent-button {
+  @apply relative inline-flex items-center px-4 py-2 border border-transparent;
+  @apply shadow-sm text-sm font-medium rounded-md text-white;
+  @apply bg-accent-400 hover:bg-accent-600 focus:outline-none focus:ring-2;
+  @apply focus:ring-offset-2 focus:ring-offset-white focus:ring-accent-500
+}
+
+.accent-button svg {
+  @apply -ml-1 mr-2 h-5 w-5;
+}
+
+.text-button {
+  @apply relative inline-flex items-center px-4 py-2;
+  @apply border hover:text-slate-200 border-transparent;
+  @apply text-sm font-medium rounded-md text-white;
+}
+
+/* Breadcrumbs */
+
+.breadcrumbs {
+  @apply bg-white border-b border-gray-200 flex;
+}
+
+.breadcrumbs ol {
+  @apply max-w-screen-xl w-full px-4 flex space-x-4 sm:px-6 lg:px-8;
+}
+
+.breadcrumbs .active-link {
+  @apply text-sm font-medium text-gray-500 hover:text-gray-700;
+}
+
+.breadcrumbs .inactive-link {
+  @apply text-sm font-medium text-gray-500;
+}
+
+.breadcrumbs .separator {
+  @apply flex-shrink-0 w-6 h-full text-gray-200;
+}
+
+/* Photo Detail */
+
+.photo-detail .flex-container {
+  @apply lg:flex w-full h-full;
+}
+
+.photo-detail .left-side {
+  @apply flex flex-col lg:mr-4 lg:w-3/4;
+}
+
+.photo-detail .image-container {
+  @apply w-full h-full bg-black flex justify-center align-middle;
+  @apply mb-6 lg:mb-0;
+}
+
+.photo-detail .image-preview {
+  @apply m-auto max-h-full max-w-full;
+}
+
+.photo-detail .right-side {
+  @apply lg:w-1/4;
+}
+
+/* Photo List */
+
+.image-list {
+  @apply grid;
+  @apply grid-cols-2 sm:grid-cols-3 lg:grid-cols-4;
+  @apply gap-x-4 gap-y-8 sm:gap-x-6 xl:gap-x-8;
+}
+
+.image-card {
+  @apply relative;
+}
+
+.image-card div {
+  @apply block w-full aspect-w-10 aspect-h-7 rounded-lg;
+  @apply first-letter:bg-gray-100;
+  @apply focus-within:ring-2 focus-within:ring-offset-2;
+  @apply focus-within:ring-offset-gray-100 focus-within:ring-accent-500;
+  @apply overflow-hidden;
+}
+
+.image-card > div > img {
+  @apply object-cover pointer-events-none;
+}
+
+.image-card > div > button {
+  @apply absolute inset-0 focus:outline-none;
+}
+
+.image-card .title {
+  @apply mt-2 block text-sm font-medium text-gray-900 truncate pointer-events-none;
+}
+
+.image-card .subtitle {
+  @apply block text-sm font-medium text-gray-500 pointer-events-none;
+}
+
+/* No Photos */
+
+.no-photos {
+  @apply text-center h-full flex flex-col justify-center align-middle; 
+  @apply text-slate-400 border-4 border-gray-200 border-dashed;
+}
+
+.no-photos .photo-icon {
+  @apply mx-auto h-16 w-16;
+}
+
+.no-photos p {
+  @apply mt-1 text-sm text-gray-500;
+}
+
+/* Footer */
+
+.app-footer {
+  @apply bg-neutral-800 px-8 py-4 h-14 w-full flex justify-between;
+}
+
+.app-footer .tag-line {
+  @apply text-white text-sm grow-0;
+}
+
+.app-footer .logos {
+  @apply h-6 justify-end;
+}
+
+/* Transitions */
+
+.next-enter {
+  transform: translate(100%, 0);
+  opacity: 0;
+  z-index: 5;
+}
+.next-enter.next-enter-active {
+  transform: translate(0, 0);
+  opacity: 1;
+  transition: opacity 500ms ease-in, transform 500ms ease;
+}
+.next-exit {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+.next-exit.next-exit-active {
+  transform: translate(-100%,0);
+  opacity: 0;
+  transition: opacity 500ms ease-in, transform 500ms ease;
+}
+
+.prev-enter {
+  transform: translate(-100%, 0px);
+  opacity: 0;
+  z-index: 1;
+}
+.prev-enter.prev-enter-active {
+  transform: translate(0, 0);
+  opacity: 1;
+  transition: opacity 500ms ease-in, transform 500ms ease;
+}
+.prev-exit {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+.prev-exit.prev-exit-active {
+  transform: translate(100%,0);
+  opacity: 0;
+  transition: opacity 500ms ease-in, transform 500ms ease;
+}
+
+.list-enter {
+  transform: translate(100%, 0);
+  opacity: 0;
+  z-index: 5;
+}
+.list-enter.list-enter-active {
+  transform: translate(0, 0);
+  opacity: 1;
+  transition: opacity 10000ms ease-in, transform 10000ms ease;
+}
+.list-exit {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+.list-exit.list-exit-active {
+  transform: translate(-100%,0);
+  opacity: 0;
+  transition: opacity 10000ms ease-in, transform 10000ms ease;
 }
