@@ -1,0 +1,32 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-communitycblfeb2022-dev-164958-authRole",
+      "UnauthRoleArn": "arn:aws:iam::296346829892:role/amplify-communitycblfeb2022-dev-164958-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::296346829892:role/amplify-communitycblfeb2022-dev-164958-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-communitycblfeb2022-dev-164958-deployment",
+      "UnauthRoleName": "amplify-communitycblfeb2022-dev-164958-unauthRole",
+      "StackName": "amplify-communitycblfeb2022-dev-164958",
+      "StackId": "arn:aws:cloudformation:us-east-1:296346829892:stack/amplify-communitycblfeb2022-dev-164958/3b16cd10-8ea9-11ec-b7af-12796b1813d3",
+      "AmplifyAppId": "dv2rxgyntm9ha"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "dv2rxgyntm9ha",
+          "type": "manual"
+        }
+      },
+      "auth": {
+        "communitycblfeb20224bb205e1": {}
+      },
+      "function": {
+        "photoProcessing": {
+          "deploymentBucketName": "amplify-communitycblfeb2022-dev-164958-deployment",
+          "s3Key": "amplify-builds/photoProcessing-2b667533335a38734e4a-build.zip"
+        }
+      }
+    }
+  }
+}

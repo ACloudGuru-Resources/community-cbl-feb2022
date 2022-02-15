@@ -8,6 +8,20 @@ import Footer from './Footer';
 
 import './App.css';
 
+// Amplify Auth Config -------------------------------
+
+// Imports
+import { Amplify } from 'aws-amplify';
+import { Authenticator } from '@aws-amplify/ui-react';
+
+// Styles
+import '@aws-amplify/ui-react/styles.css';
+
+// Configure AWS Amplify with values from aws-exports
+import awsExports from './aws-exports';
+Amplify.configure(awsExports);
+
+
 const App = () => {
 
   // List of photos
@@ -67,32 +81,36 @@ const App = () => {
   }, []);
 
   return (
-    <div className="App">
-      {/* Hidden input for file upload */}
-      <input 
-        type="file" 
-        id="file"
-        ref={inputFile}
-        className="hidden"
-        onChange={upload}
-        accept=".jpg,.jpeg"
-        multiple={false}/>
-      <Header 
-        uploadPhoto={triggerUpload} 
-        signOut={() => ({})} />
-      <Router>
-        <Breadcrumbs />
-        <section className="content-area">
-          <div className="content-wrapper">
-              <AppRoutes 
-                photos={photos} 
-                refreshPhotos={fetchPhotos}
-                uploadPhoto={triggerUpload} />
-          </div>
-        </section>
-      </Router>
-      <Footer />
-    </div>
+    <Authenticator loginMechanisms={['email']} variation="modal">
+      {({ signOut }) => (
+        <div className="App">
+          {/* Hidden input for file upload */}
+          <input 
+            type="file" 
+            id="file"
+            ref={inputFile}
+            className="hidden"
+            onChange={upload}
+            accept=".jpg,.jpeg"
+            multiple={false}/>
+          <Header 
+            uploadPhoto={triggerUpload} 
+            signOut={signOut} />
+          <Router>
+            <Breadcrumbs />
+            <section className="content-area">
+              <div className="content-wrapper">
+                  <AppRoutes 
+                    photos={photos} 
+                    refreshPhotos={fetchPhotos}
+                    uploadPhoto={triggerUpload} />
+              </div>
+            </section>
+          </Router>
+          <Footer />
+        </div>
+    )}
+    </Authenticator>
   );
 }
 
