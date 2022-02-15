@@ -8,7 +8,9 @@ In this episode of Cloud Builder Live, a sample photo application will be deploy
 
 This episode will air on February 15, 2022 at 6pm Eastern time.  It will be streamed on both [YouTube](https://www.youtube.com/watch?v=dDnSTs2J6fk) and Twitch.  
 
+## Finished Version
 
+You can find the version from the live demo under the [finish branch](https://github.com/ACloudGuru-Resources/community-cbl-feb2022/tree/finish).
 
 ## What Will Be Added
 
